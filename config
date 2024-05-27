@@ -51,28 +51,27 @@
 #
 #-----------------------------------------------------------
 
-EXTRACT_DIR=/lfs/h2/emc/stmp/$USER/gdas.init/input
-EXTRACT_DATA=yes
+EXTRACT_DIR=/lfs4/BMC/nrtrr/gge/ufs-ar/ICS/C2023021918/input
+EXTRACT_DATA=no
 
 RUN_CHGRES=yes
 
-yy=2020
-mm=01
-dd=01
-hh=06
+yy=2023
+mm=02
+dd=19
+hh=18
 
 use_v16retro=no
 
-LEVS=65
+LEVS=128  #don't use LEVS=65 which is currently not supported by the global workflow. HAFS workflow can use 64 levels
 
-CDUMP=gfs
+CDUMP=gdas #gfs for forecast-only and gdas for cycling
 
-CRES_HIRES=C192
-CRES_ENKF=C96
+CRES_HIRES=C384
+CRES_ENKF=C192
+OUTDIR=/lfs4/BMC/nrtrr/gge/ufs-ar/ICS/C2023021918/${CRES_HIRES}
 
 UFS_DIR=$PWD/../..
-
-OUTDIR=/lfs/h2/emc/stmp/$USER/gdas.init/output
 
 #---------------------------------------------------------
 # Dont touch anything below here.

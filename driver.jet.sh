@@ -16,9 +16,9 @@ module use ../../modulefiles
 module load build.$target.$compiler
 module list
 
-PROJECT_CODE=hfv3gfs
+PROJECT_CODE=nrtrr
 QUEUE=batch
-PARTITION=xjet
+PARTITION=kjet
 
 export machine=jet
 
@@ -156,7 +156,7 @@ if [ $RUN_CHGRES == yes ]; then
       fi
       ;;
     v16)
-      sbatch --parsable --ntasks-per-node=6 --nodes=${NODES} -t $WALLT -A $PROJECT_CODE -q $QUEUE -J chgres_${CDUMP} \
+      sbatch --parsable --ntasks-per-node=6 --nodes=${NODES} -t $WALLT -A rtwrfruc -q rth --reservation=rrfsens -J chgres_${CDUMP} \
       -o log.${CDUMP} -e log.${CDUMP} --partition=${PARTITION} ${DEPEND} run_v16.chgres.sh ${CDUMP}
       ;;
   esac
@@ -196,7 +196,7 @@ if [ $RUN_CHGRES == yes ]; then
               -o log.${MEMBER_CH} -e log.${MEMBER_CH} --partition=${PARTITION} ${DEPEND} run_v15.chgres.sh ${MEMBER_CH}
             ;;
           v16)
-              sbatch --parsable --ntasks-per-node=12 --nodes=1 -t $WALLT -A $PROJECT_CODE -q $QUEUE -J chgres_${MEMBER_CH} \
+              sbatch --parsable --ntasks-per-node=12 --nodes=1 -t $WALLT -A rtwrfruc -q rth --reservation=rrfsens -J chgres_${MEMBER_CH} \
               -o log.${MEMBER_CH} -e log.${MEMBER_CH} --partition=${PARTITION} ${DEPEND} run_v16.chgres.sh ${MEMBER_CH}
             ;;
         esac
